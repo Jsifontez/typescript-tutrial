@@ -5,10 +5,13 @@
  * To listen every change of the file we use:
  * 'tsc [fielToCompile].ts -w
  */
-var character = 'luigi';
+
+const character = 'luigi';
 console.log(character);
-var inputs = document.querySelectorAll('input');
+
+const inputs = document.querySelectorAll('input');
 console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
+
+inputs.forEach(input => {
+  console.log(input);
 });
