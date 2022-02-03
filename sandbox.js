@@ -5,10 +5,26 @@
  * To listen every change of the file we use:
  * 'tsc [fielToCompile].ts -w
  */
-var character = 'luigi';
-console.log(character);
-var inputs = document.querySelectorAll('input');
-console.log(inputs);
-inputs.forEach(function (input) {
-    console.log(input);
-});
+/**
+ * TypeScript uses some inference or it infers in the value
+ * assigned to the variable to assgin the type
+ * with that we don't need to specify the type of every variable
+ */
+var character = 'mario';
+var age = 30;
+var isBlackBelt = false;
+// due that typescript use strict types we can't assign a number to a string variable
+// character = 30;
+// age = 'yoshi';
+// isBlackBelt = 'yes';
+character = 'luigi';
+age = 40;
+isBlackBelt = true;
+/**
+ * We can define what type of variable we can past to a function as argument
+ * to do that we use a color ':' and then write the type of variable
+*/
+var circ = function (diameter) {
+    return diameter * Math.PI;
+};
+console.log(circ(5));
