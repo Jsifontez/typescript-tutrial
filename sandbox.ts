@@ -100,3 +100,51 @@ ninja.name = 'camila';
  * // age: 35
  * }
  */
+
+// -----------------------------------------------------------
+
+// explicit types: initialize a variable type to be able to assign value in the future
+
+let char: string;
+let ageN: number;
+let isLoggedIn: boolean;
+
+// we can do
+char = 'ar';
+ageN = 12;
+isLoggedIn = false;
+
+// arrays: we need to initialize the value of the array with and empty array. If not, it give us an error
+let newNinjas: string[] = [];
+
+newNinjas.push('camile');
+
+// union types: A way to tell that the value can recieve multiple one type or another
+let newMixed: (string|number)[] = [];
+
+newMixed.push('yoshi');
+newMixed.push(20);
+// newMixed.push(false); // it give us an error
+
+// we can use union types with normal variables. Here we don't need to use parenthesis
+let uid: string|number;
+uid = '123';
+uid = 123;
+
+// objects
+let ninjaOne: object;
+
+ninjaOne = { name: 'mario', age: 30 };
+
+// declare a specific structure for the object
+let ninjaTwo: {
+  name: string,
+  age: number,
+  beltColor: string
+};
+
+ninjaTwo = {
+  name: 'shaun',
+  age: 34,
+  beltColor: 'orange'
+}
