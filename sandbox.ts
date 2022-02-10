@@ -148,3 +148,31 @@ ninjaTwo = {
   age: 34,
   beltColor: 'orange'
 }
+
+// --------------------------------------------------
+
+// any type: We can create a variable that can change all type of values
+let anyAge: any = 25;
+
+anyAge = true;
+anyAge = 'hello';
+anyAge = { name: 'luigi' };
+
+
+// we can use any with arrays
+let anyMixed: any[] = [];
+
+anyMixed.push(5);
+anyMixed.push('mario');
+anyMixed.push(false);
+
+
+//we can use any with objects
+
+let anyNinja: { name: any, age: any };
+
+anyNinja = { name: 'yoshi', age: 25 };
+console.log(ninja);
+
+anyNinja = { name: 25, age: 'yoshi' };
+console.log(ninja);
