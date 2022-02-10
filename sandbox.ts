@@ -33,3 +33,70 @@ const circ = (diameter: number) => {
 };
 
 console.log(circ(5));
+
+// arrays
+
+// this create a array of only strings
+let names = ['luigi', 'mario', 'joshi'];
+
+// we can't do this to names array
+// names.push(0);
+// names[0] = true
+
+// creating an array with just numbers
+let numbers = [10, 20, 50, 40];
+
+// we can do
+numbers.push(25);
+
+// we can't do
+// numbers.push('juan');
+// numbers[0] = false
+
+/**
+ * to create and array with differents types we need to initilize
+ * that array with the types that we want in it
+ */
+let mixed = ['yoshi', 12, 'fire', 25];
+
+// we can do
+mixed.push('ryu');
+mixed.push(10);
+mixed[0] = 3;
+
+// we can not change the type of the variable assign it
+// mixed = 'arrage';
+// numbers = 24;
+
+// objects
+
+/**
+ * here each property of the object is like a variable
+ * we can't change a type of variable
+ * at the same time the word variable assign it with the object
+ * can not change type. But we can assign a new object with the same structure
+ * once we create an object we can't add another property
+ * with `Object.newProperty`
+ */
+let ninja = {
+  name: 'mario',
+  belt: 'balck',
+  age: 30
+}
+
+// we can do with objects properties
+ninja.age = 25;
+ninja.name = 'camila';
+
+// we can't
+// ninja.age = '13';
+// ninja.skills = ['fighting', 'sneaking'];
+
+// we can't change the structure of the object
+/**
+ * ninja = {
+ * name: 'luigi',
+ * belt: 'white',
+ * // age: 35
+ * }
+ */
