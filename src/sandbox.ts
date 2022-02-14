@@ -176,3 +176,41 @@ console.log(ninja);
 
 anyNinja = { name: 25, age: 'yoshi' };
 console.log(ninja);
+
+// -----------------functions--------------------
+
+/**
+ * we can let create a variable that only take function
+ */
+
+let greet: Function;
+
+// greet = 'hello' // throw an error
+
+greet = () => {
+  console.log('hello there');
+}
+
+/**
+ * to add an optional parameter we add a '?' sign before to specify the type of the argument.
+ * if we don't pass any value to that argument, it take the value of undefined:
+ * c?: number | string
+ */
+const add = (a: number, b: number, c: number | string = 10) => {
+  console.log(a + b)
+  console.log(c)
+}
+
+add(5, 10);
+
+
+/**
+ * we can explicitly specify the return type. This is done by writing a colon after the arguments of the function
+ * if we don't specify it TS can infer with the return value
+ * a return type of void it means that the function doesn't return anything
+ */
+const minus = (a: number, b: number): number => {
+  return a - b
+}
+
+let result = minus(10, 7)
