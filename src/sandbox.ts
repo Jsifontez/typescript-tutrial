@@ -214,3 +214,23 @@ const minus = (a: number, b: number): number => {
 }
 
 let result = minus(10, 7)
+
+// -----------------Type Aliases----------------------
+
+/**
+ * a type alias is a way to abbreviate the type of a data. With that we avoid of write the type
+ * of every single element that we want that type.
+ * 
+ */
+
+type StringOrNum = string | number;
+// Aliases are also used for objects
+type objWithName = { name: string, uid: StringOrNum}
+
+const logDetails = (uid: StringOrNum, item: string) => {
+  console.log(`${item} has a uid of ${uid}`);
+}
+
+const greetTwo = (user: objWithName) => {
+  console.log(`${user.name} says hello`);
+}
