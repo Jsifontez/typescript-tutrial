@@ -234,3 +234,40 @@ const logDetails = (uid: StringOrNum, item: string) => {
 const greetTwo = (user: objWithName) => {
   console.log(`${user.name} says hello`);
 }
+
+// ---------------Function Signatures------------------
+
+/**
+ * A function signature is a way to specify which type of function we can create.
+ * This mean that we can specify the number of parameters and types that is going to take,
+ * and the type of the element to return.
+ * If we change the type of the parameters accepted it's goign to throw an error because the function don't follow the signature
+ *
+ */
+
+// example 1
+let greet3: (a: string, b: string) => void;
+
+greet3 = (name: string, greeting: string) => {
+ console.log(`${name} says ${greeting}`);
+}
+
+// example 2
+let calc: (a: number, b: number, c: string) => number;add
+
+calc = (numOne: number, numTwo: number, action: string) => {
+  if (action === 'add') {
+    return numOne + numTwo;
+  } else {
+    return numOne - numTwo
+  }
+}
+
+// example 3
+let logDetails1: (obj: {name: string, age: number}) => void;
+
+type person = { name: string, age: number };
+
+logDetails1 = (ninja: person) => {
+  console.log(`${ninja.name} is ${ninja.age} years old`);
+}
