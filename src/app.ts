@@ -15,7 +15,41 @@
 
 // console.log(anchor.href)
 
+// ----------Clasess------------
+
+class Invoice {
+  // all the properties created below are public
+  // which means that when we create an instance of that class, we can access to all that properties
+  // we can change it if we want, after the initial instance of the class
+  client: string;
+  details: string;
+  amount: number;
+
+  constructor (c:string, d: string, a: number) {
+    this.client = c;
+    this.details = d;
+    this.amount = a;
+  }
+
+  format () {
+    return `${this.client} owes £${this.amount} form ${this.details}`
+  }
+}
+
+const invOne = new Invoice('mario', 'work on the mario website', 250);
+const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
+
+// to assign the type of the classe created we use the name of the class follow by brackets (like an array)
+let invoinces: Invoice[] = [];
+
+invoinces.push(invOne);
+invoinces.push(invTwo);
+
+console.log(invoinces)
+// ---------Type casting----------
+
 // const form = document.querySelector('form')!; // this is a type of HTMLFormElement
+
 /**
  * when we take an element by his class, TS take that type of Element instead of HTMLFormElement.
  * To avoid that an assign the correct type we can use what is call it 'type casting'
