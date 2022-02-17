@@ -1,3 +1,5 @@
+import { Invoice } from './classes/invoice.js';
+
 /**
  * We can work with the DOM in TS like we do in javascript.
  * But there a few differences:
@@ -16,31 +18,6 @@
 // console.log(anchor.href)
 
 // ----------Clasess------------
-
-class Invoice {
-  /**
-   * all the properties created below are public
-   * which means that when we create an instance of that class, we can access to all that properties
-   * we can change it if we want, after the initial instance of the class
-   * to do that we use access modifiers like:
-   * 'public': the default value. We can access and modify the property outside the class
-   * 'private': We can access to the property inside the function but not outside. Like a 'Class.property'
-   * 'readonly': We can read the property from outside and inside but we can't change it
-   */
-  // readonly client: string;
-  // private details: string;
-  // public amount: number;
-
-  constructor (
-    readonly client: string,
-    private details: string,
-    public amount: number
-  ){}
-
-  format () {
-    return `${this.client} owes £${this.amount} form ${this.details}`
-  }
-}
 
 const invOne = new Invoice('mario', 'work on the mario website', 250);
 const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
@@ -81,3 +58,14 @@ form.addEventListener('submit', (e: Event) => {
     amount.valueAsNumber
   )
 })
+
+// -------------------Modules--------------------
+
+/**
+ * We can leverage the ecmaScript specification to use modules in TS.
+ * To do that we go to the tsconfig.json and change the "module" config to "es2015"
+ * And finaly go to the script tag in the html and add the "type" attribute and set it to "module".
+ * With that we can import and export the elements that we want it. But when we import we use as '.js' as extension and not '.ts'
+ * This is a feature that only modern browser supports
+ */
+
