@@ -1,17 +1,22 @@
 import { Invoice } from './classes/invoice.js';
-/**
- * We can work with the DOM in TS like we do in javascript.
- * But there a few differences:
- * If we create a reference to an element of the DOM that is possibly be 'null'
- * TS throw us an error. There are two way to solve that:
- * 1. Create an 'if' statement where we can access to whaterver we want
- * 2. Add an exclamation mark at the end of the assignation. Do this only if you know that that element will exist
- */
-// const anchor = document.querySelector('a')!;
-// if (anchor) {
-//   console.log(anchor.href)
-// }
-// console.log(anchor.href)
+import { Payment } from './classes/Payment.js';
+const me = {
+    name: 'shaun',
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('I spent ', amount);
+        return amount;
+    },
+};
+console.log(me);
+me.speak('hello, world');
+const greetPerson = (person) => {
+    console.log('hello ', person.name);
+};
+greetPerson(me);
 // ----------Clasess------------
 const invOne = new Invoice('mario', 'work on the mario website', 250);
 const invTwo = new Invoice('luigi', 'work on the luigi website', 300);
@@ -37,11 +42,20 @@ const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
 // -------------------Modules--------------------
 /**
  * We can leverage the ecmaScript specification to use modules in TS.
  * To do that we go to the tsconfig.json and change the "module" config to "es2015"
- * And finaly go to the script tag in the html and add the "type" attribute and set it to "module"
+ * And finaly go to the script tag in the html and add the "type" attribute and set it to "module".
+ * With that we can import and export the elements that we want it. But when we import we use as '.js' as extension and not '.ts'
+ * This is a feature that only modern browser supports
  */

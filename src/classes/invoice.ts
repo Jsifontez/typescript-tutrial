@@ -1,4 +1,11 @@
-export class Invoice {
+import { HasFormatter } from '../interfaces/HasFormatter.js'
+
+/**
+ * whe you export and interface, to be able use with a clase tou should use 'implements [interface name]'
+ * in that way the class must have the structure of the interface implemented
+ */
+
+export class Invoice implements HasFormatter {
   /**
    * all the properties created below are public
    * which means that when we create an instance of that class, we can access to all that properties
