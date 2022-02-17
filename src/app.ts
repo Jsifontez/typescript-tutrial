@@ -1,21 +1,40 @@
 import { Invoice } from './classes/invoice.js';
 
+//------------------Interfaces------------------------
+
 /**
- * We can work with the DOM in TS like we do in javascript.
- * But there a few differences:
- * If we create a reference to an element of the DOM that is possibly be 'null'
- * TS throw us an error. There are two way to solve that:
- * 1. Create an 'if' statement where we can access to whaterver we want
- * 2. Add an exclamation mark at the end of the assignation. Do this only if you know that that element will exist
+ * an interfac allow to create a certain type of structure over an object with
+ * we can use it to tell what propeties, what methods or what types of the properties and the return of those methods are
+ * this is different from a class because we don't use interefaces to create a new instances we use interfaces to create the structure, like functions
  */
+interface IsPerson {
+  name: string;
+  age: number;
+  // in the methods structures doesn't matter the name of the arguments
+  speak(a: string): void;
+  spend(a: number): number;
+}
 
-// const anchor = document.querySelector('a')!;
+const me: IsPerson = {
+  name: 'shaun',
+  age: 30,
+  speak(text: string): void {
+    console.log(text);
+  },
+  spend(amount: number): number {
+    console.log('I spent ', amount);
+    return amount;
+  },
+};
 
-// if (anchor) {
-//   console.log(anchor.href)
-// }
+console.log(me);
+me.speak('hello, world');
 
-// console.log(anchor.href)
+const greetPerson = (person: IsPerson): void => {
+  console.log('hello ', person.name);
+}
+
+greetPerson(me);
 
 // ----------Clasess------------
 
@@ -68,4 +87,3 @@ form.addEventListener('submit', (e: Event) => {
  * With that we can import and export the elements that we want it. But when we import we use as '.js' as extension and not '.ts'
  * This is a feature that only modern browser supports
  */
-
