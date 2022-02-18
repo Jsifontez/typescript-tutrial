@@ -97,3 +97,38 @@ form.addEventListener('submit', (e: Event) => {
  * With that we can import and export the elements that we want it. But when we import we use as '.js' as extension and not '.ts'
  * This is a feature that only modern browser supports
  */
+
+// ------------------Generics-----------------------
+
+/**
+ * generecis allow to reuse certain block of code which can use different types
+ * to create a generic we use '<T>''
+ * we also can extend the properties of a generic with '<T extends [type]'
+ */
+
+ const addUID = <T extends {name: string}>(obj: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return {...obj, uid};
+}
+
+let docOne = addUID({name: 'yoshi', age: 40});
+//let docTwo = addUID('shaun'); // throw and error because the generics extend for an object which has the property name
+
+// with interfaces we extend the data type of a property usign generics. Which can be any value that we want
+interface Resource<T> {
+  uid: number;
+  resourceName: string;
+  data: T;
+}
+
+const docThree: Resource<object> = {
+  uid: 1,
+  resourceName: 'person',
+  data: { name: 'shaun' }
+};
+
+const docFour: Resource<string[]> = {
+  uid: 1,
+  resourceName: 'shoppingList',
+  data: ['bread', 'milk']
+};
