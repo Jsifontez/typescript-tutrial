@@ -114,21 +114,31 @@ form.addEventListener('submit', (e: Event) => {
 let docOne = addUID({name: 'yoshi', age: 40});
 //let docTwo = addUID('shaun'); // throw and error because the generics extend for an object which has the property name
 
+// ------------------Enums------------------------
+
+/**
+ * Are a special constants or keywords and associate it with a numeric value
+ * it can be a value or another
+ */
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTO, PERSON }
+
 // with interfaces we extend the data type of a property usign generics. Which can be any value that we want
 interface Resource<T> {
   uid: number;
-  resourceName: string;
+  resourceType: ResourceType;
   data: T;
 }
 
+// resource type is 0, because enum are 0 index elements
 const docThree: Resource<object> = {
   uid: 1,
-  resourceName: 'person',
+  resourceType: ResourceType.BOOK,
   data: { name: 'shaun' }
 };
 
+// resource type is 4, because enum are 0 index elements
 const docFour: Resource<string[]> = {
   uid: 1,
-  resourceName: 'shoppingList',
+  resourceType: ResourceType.PERSON,
   data: ['bread', 'milk']
 };
