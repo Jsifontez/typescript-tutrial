@@ -77,12 +77,16 @@ const list = new ListTemplate(ul);
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
+  // using tuples
+  let values: [string, string, number];
+  values = [tofrom.value, details.value, amount.valueAsNumber];
+
   let doc: HasFormatter;
 
   if (type.value === 'invoice') {
-    doc = new Invoice (tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Invoice (...values);
   } else {
-    doc = new Payment (tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment (...values);
   }
 
   list.render(doc, type.value, 'end');
@@ -142,3 +146,14 @@ const docFour: Resource<string[]> = {
   resourceType: ResourceType.PERSON,
   data: ['bread', 'milk']
 };
+
+// ------------------Tuples-----------------------
+
+/**
+ * tuples are like array, it declare with '[]' but the main difference is that each position in
+ * the tuple are fixed to be certain type of data
+ * but each elements can change to the same type
+ */
+let tup: [string, number, boolean] = ['mario', 42, false];
+
+// tup = 23, 64, true; // throw an error because the first element must be a string and not a number
